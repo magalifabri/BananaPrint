@@ -12,13 +12,11 @@
     <h1>header</h1>
 
     @auth
-        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+        <a href="{{ url('/dashboard') }}">Dashboard</a>
     @else
-        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-        @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-        @endif
+        <a href="{{ route('login') }}">log in</a>
+        <span>|</span>
+        <a href="{{ route('register') }}">register</a>
     @endauth
 </header>
 
