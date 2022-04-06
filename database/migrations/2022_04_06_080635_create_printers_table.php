@@ -21,6 +21,8 @@ class CreatePrintersTable extends Migration
             $table->string('street');
             $table->integer('street_number');
             $table->string('zipcode');
+            $table->string('lat');
+            $table->string('long');
             $table->timestamps();
         });
     }
