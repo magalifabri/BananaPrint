@@ -860,57 +860,18 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFnYWxpLWYiLCJhIjoiY2wxbmc2bTcxMHA5dzNpcXJ3NG5iOGc4eCJ9.hc1mwIb1k0yBsaY__Dcecw'; // const map = new mapboxgl.Map({
-//     container: 'map',
-//     style: 'mapbox://styles/mapbox/streets-v11',
-//     center: [-74.5, 40],
-//     zoom: 9
-// });
-// const mapboxClient = mapboxSdk({accessToken: mapboxgl.accessToken});
-//
-// mapboxClient.geocoding
-//     .forwardGeocode({
-//         query: 'kraaistraat 18 9000 Belgium',
-//         autocomplete: false,
-//         limit: 1
-//     })
-//     .send()
-//     .then((response) => {
-//         if (
-//             !response ||
-//             !response.body ||
-//             !response.body.features ||
-//             !response.body.features.length
-//         ) {
-//             console.error('Invalid response:');
-//             console.error(response);
-//             return;
-//         }
-//
-//         const feature = response.body.features[0];
-//
-//         const map = new mapboxgl.Map({
-//             container: 'map',
-//             style: 'mapbox://styles/mapbox/streets-v11',
-//             center: feature.center,
-//             zoom: 10
-//         });
-//
-// // Create a marker and add it to the map.
-//         new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
-//     });
+mapboxgl.accessToken = 'pk.eyJ1IjoibWFnYWxpLWYiLCJhIjoiY2wxbmc2bTcxMHA5dzNpcXJ3NG5iOGc4eCJ9.hc1mwIb1k0yBsaY__Dcecw';
 
-var mapboxClient = mapboxSdk({
-  accessToken: mapboxgl.accessToken
-});
-var feature;
-
-var getFeature = /*#__PURE__*/function () {
+var getCoordsFromAddress = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+    var mapboxClient;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            mapboxClient = mapboxSdk({
+              accessToken: mapboxgl.accessToken
+            });
             mapboxClient.geocoding.forwardGeocode({
               query: 'kraaistraat 18 9000 Belgium',
               autocomplete: false,
@@ -923,10 +884,11 @@ var getFeature = /*#__PURE__*/function () {
               }
 
               feature = response.body.features[0];
+              console.log(feature);
               createMap(feature);
             });
 
-          case 1:
+          case 2:
           case "end":
             return _context.stop();
         }
@@ -934,43 +896,37 @@ var getFeature = /*#__PURE__*/function () {
     }, _callee);
   }));
 
-  return function getFeature() {
+  return function getCoordsFromAddress() {
     return _ref.apply(this, arguments);
   };
 }();
 
-var createMap = function createMap(feature) {
+var createMap = function createMap(data) {
+  if (!data[0][0]) {
+    return;
+  }
+
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
-    center: feature.center,
+    center: [data[0][0], data[1][0]],
     zoom: 10
-  }); // Create a marker and add it to the map.
+  }); // add markers to map
 
-  new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+  data[0].forEach(function (element, index) {
+    var lng = element;
+    var lat = data[1][index];
+    new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
+  });
 };
 
-var run = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.next = 2;
-            return getFeature();
-
-          case 2:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2);
-  }));
-
-  return function run() {
-    return _ref2.apply(this, arguments);
-  };
-}();
+var run = function run() {
+  fetch('/get-all-locations').then(function (response) {
+    return response.json();
+  }).then(function (data) {
+    return createMap(data);
+  });
+};
 
 run();
 })();

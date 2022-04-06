@@ -48,7 +48,7 @@ class PrinterController extends Controller
 
     private function getLatLong($street, $streetNumber, $zipcode)
     {
-        $apiToken = 'pk.eyJ1IjoibWFnYWxpLWYiLCJhIjoiY2wxbmc2bTcxMHA5dzNpcXJ3NG5iOGc4eCJ9.hc1mwIb1k0yBsaY__Dcecw';
+        $apiToken = env('MAPBOX_API_TOKEN');
 
         $responseJson = file_get_contents("https://api.mapbox.com/geocoding/v5/mapbox.places/{$street}+{$streetNumber}+{$zipcode}.json?proximity=ip&access_token={$apiToken}");
         $responseAssoc = json_decode($responseJson);
@@ -58,6 +58,14 @@ class PrinterController extends Controller
         return [
             'lat' => $lat,
             'long' => $long
+        ];
+    }
+
+    public function getAllLocations()
+    {
+        return [
+            Printer::pluck('long'),
+            Printer::pluck('lat'),
         ];
     }
 }
