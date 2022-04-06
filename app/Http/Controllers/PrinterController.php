@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Printer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,6 +31,10 @@ class PrinterController extends Controller
         $printer['zipcode'] = $request->zipcode;
         $printer->save();
 
-        dd($request);
+        $user = User::find(Auth::id());
+        $user['has_printer'] = true;
+        $user->save();
+
+        return view('dashboard');
     }
 }
