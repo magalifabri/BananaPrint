@@ -43,7 +43,8 @@ class PrinterController extends Controller
         $user['has_printer'] = true;
         $user->save();
 
-        return view('dashboard')->with('user', $user);
+        return redirect(route('dashboard'));
+//        return view('dashboard')->with('user', $user);
     }
 
     private function getLatLong($street, $streetNumber, $zipcode)
