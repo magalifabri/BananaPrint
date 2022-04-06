@@ -26,6 +26,8 @@ class PrinterController extends Controller
 
         $printer = new Printer;
         $printer['user_id'] = Auth::id();
+        $printer['color'] = $request->color;
+        $printer['double_sided'] = $request->doubleSided ?? false;
         $printer['street'] = $request->street;
         $printer['street_number'] = $request->streetNumber;
         $printer['zipcode'] = $request->zipcode;
@@ -35,6 +37,6 @@ class PrinterController extends Controller
         $user['has_printer'] = true;
         $user->save();
 
-        return view('dashboard');
+        return view('dashboard')->with('user', $user);
     }
 }
