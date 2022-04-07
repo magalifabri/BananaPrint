@@ -32,10 +32,11 @@ class PrinterController extends Controller
         $printer['street_number'] = $request->streetNumber;
         $printer['zipcode'] = $request->zipcode;
 
-        $latLong = $this->getLatLong($request->street, $request->streetNumber, $request->zipcode);
+        $location = "{$request->street}+{$request->streetNumber}+{$request->zipcode}";
+        $latLng = $this->getLatLong($location);
 
-        $printer['lat'] = $latLong['lat'];
-        $printer['long'] = $latLong['long'];
+        $printer['lat'] = $latLng['lat'];
+        $printer['long'] = $latLng['lng'];
 
         $printer->save();
 
@@ -44,21 +45,20 @@ class PrinterController extends Controller
         $user->save();
 
         return redirect(route('dashboard'));
-//        return view('dashboard')->with('user', $user);
     }
 
-    private function getLatLong($street, $streetNumber, $zipcode)
+    private function getLatLong($location)
     {
         $apiToken = env('MAPBOX_API_TOKEN');
 
-        $responseJson = file_get_contents("https://api.mapbox.com/geocoding/v5/mapbox.places/{$street}+{$streetNumber}+{$zipcode}.json?proximity=ip&access_token={$apiToken}");
+        $responseJson = file_get_contents("https://api.mapbox.com/geocoding/v5/mapbox.places/{$location}.json?proximity=ip&access_token={$apiToken}");
         $responseAssoc = json_decode($responseJson);
         $lat = $responseAssoc->features[0]->center[1];
-        $long = $responseAssoc->features[0]->center[0];
+        $lng = $responseAssoc->features[0]->center[0];
 
         return [
             'lat' => $lat,
-            'long' => $long
+            'lng' => $lng
         ];
     }
 
