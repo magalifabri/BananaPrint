@@ -25,12 +25,12 @@ const createMap = (data) => {
         const lat = data[1][index];
         const color = data[2][index] ? 'yes' : 'no';
         const double = data[3][index] ? 'yes' : 'no';
-        const ownerId = data[4][index];
+        const printerId = data[4][index];
 
         const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
             `<p>color: ${color} </p>`
             + `<p>double-sided: ${double} </p>`
-            + `<p><a href=\"/contact-owner/${ownerId}\">link</a></p>`
+            + `<p><a href=\"/contact-owner/${printerId}\">link</a></p>`
         );
 
         new mapboxgl.Marker().setLngLat([lng, lat]).setPopup(popup).addTo(map);

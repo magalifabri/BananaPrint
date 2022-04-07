@@ -69,7 +69,7 @@ class PrinterController extends Controller
             Printer::pluck('lat'),
             Printer::pluck('color'),
             Printer::pluck('double_sided'),
-            Printer::pluck('user_id'),
+            Printer::pluck('id'),
         ];
     }
 }

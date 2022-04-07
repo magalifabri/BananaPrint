@@ -884,10 +884,10 @@ var createMap = function createMap(data) {
 
     var _double = data[3][index] ? 'yes' : 'no';
 
-    var ownerId = data[4][index];
+    var printerId = data[4][index];
     var popup = new mapboxgl.Popup({
       offset: 25
-    }).setHTML("<p>color: ".concat(color, " </p>") + "<p>double-sided: ".concat(_double, " </p>") + "<p><a href=\"/contact-owner/".concat(ownerId, "\">link</a></p>"));
+    }).setHTML("<p>color: ".concat(color, " </p>") + "<p>double-sided: ".concat(_double, " </p>") + "<p><a href=\"/contact-owner/".concat(printerId, "\">link</a></p>"));
     new mapboxgl.Marker().setLngLat([lng, lat]).setPopup(popup).addTo(map);
   });
 };
