@@ -21,8 +21,8 @@ class PrinterFactory extends Factory
             'street' => $this->faker->streetName(),
             'street_number' => $this->faker->numberBetween(1, 100),
             'zipcode' => '0000',
-            'lat' => $this->faker->randomFloat(3, 51, 52),
-            'long' => $this->faker->randomFloat(3, 4, 5),
+            'lat' => $this->faker->randomFloat(6, 51.0, 51.1),
+            'long' => $this->faker->randomFloat(6, 3.6, 3.8),
         ];
     }
 }
