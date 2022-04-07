@@ -861,36 +861,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var apiToken = 'pk.eyJ1IjoibWFnYWxpLWYiLCJhIjoiY2wxbmc2bTcxMHA5dzNpcXJ3NG5iOGc4eCJ9.hc1mwIb1k0yBsaY__Dcecw';
-mapboxgl.accessToken = apiToken; // const getCoordsFromAddress = async (address) => {
-//     const mapboxClient = mapboxSdk({accessToken: mapboxgl.accessToken});
-//
-//     mapboxClient.geocoding
-//         .forwardGeocode({
-//             query: address,
-//             autocomplete: false,
-//             limit: 1
-//         })
-//         .send()
-//         .then((response) => {
-//             if (
-//                 !response ||
-//                 !response.body ||
-//                 !response.body.features ||
-//                 !response.body.features.length
-//             ) {
-//                 console.error('Invalid response:');
-//                 console.error(response);
-//                 return;
-//             }
-//
-//
-//             const feature = response.body.features[0];
-//             console.log(feature);
-//             return feature;
-//             // createMap(feature);
-//         });
-// }
-// CREATE MAP
+mapboxgl.accessToken = apiToken; // CREATE MAP
 
 var map;
 
@@ -909,12 +880,20 @@ var createMap = function createMap(data) {
   data[0].forEach(function (element, index) {
     var lng = element;
     var lat = data[1][index];
-    new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
+    var color = data[2][index] ? 'yes' : 'no';
+
+    var _double = data[3][index] ? 'yes' : 'no';
+
+    var ownerId = data[4][index];
+    var popup = new mapboxgl.Popup({
+      offset: 25
+    }).setHTML("<p>color: ".concat(color, " </p>") + "<p>double-sided: ".concat(_double, " </p>") + "<p><a href=\"/contact-owner/".concat(ownerId, "\">link</a></p>"));
+    new mapboxgl.Marker().setLngLat([lng, lat]).setPopup(popup).addTo(map);
   });
 };
 
 var run = function run() {
-  fetch('/get-all-locations').then(function (response) {
+  fetch('/get-printers-info').then(function (response) {
     return response.json();
   }).then(function (data) {
     return createMap(data);

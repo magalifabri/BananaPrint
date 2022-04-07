@@ -2,36 +2,6 @@ const apiToken = 'pk.eyJ1IjoibWFnYWxpLWYiLCJhIjoiY2wxbmc2bTcxMHA5dzNpcXJ3NG5iOGc
 
 mapboxgl.accessToken = apiToken;
 
-// const getCoordsFromAddress = async (address) => {
-//     const mapboxClient = mapboxSdk({accessToken: mapboxgl.accessToken});
-//
-//     mapboxClient.geocoding
-//         .forwardGeocode({
-//             query: address,
-//             autocomplete: false,
-//             limit: 1
-//         })
-//         .send()
-//         .then((response) => {
-//             if (
-//                 !response ||
-//                 !response.body ||
-//                 !response.body.features ||
-//                 !response.body.features.length
-//             ) {
-//                 console.error('Invalid response:');
-//                 console.error(response);
-//                 return;
-//             }
-//
-//
-//             const feature = response.body.features[0];
-//             console.log(feature);
-//             return feature;
-//             // createMap(feature);
-//         });
-// }
-
 
 // CREATE MAP
 
@@ -53,12 +23,22 @@ const createMap = (data) => {
     data[0].forEach((element, index) => {
         const lng = element;
         const lat = data[1][index];
-        new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map);
+        const color = data[2][index] ? 'yes' : 'no';
+        const double = data[3][index] ? 'yes' : 'no';
+        const ownerId = data[4][index];
+
+        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+            `<p>color: ${color} </p>`
+            + `<p>double-sided: ${double} </p>`
+            + `<p><a href=\"/contact-owner/${ownerId}\">link</a></p>`
+        );
+
+        new mapboxgl.Marker().setLngLat([lng, lat]).setPopup(popup).addTo(map);
     })
 }
 
 const run = () => {
-    fetch('/get-all-locations')
+    fetch('/get-printers-info')
         .then(response => response.json())
         .then(data => createMap(data));
 }

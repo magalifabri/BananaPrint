@@ -62,11 +62,14 @@ class PrinterController extends Controller
         ];
     }
 
-    public function getAllLocations()
+    public function getPrintersInfo()
     {
         return [
             Printer::pluck('long'),
             Printer::pluck('lat'),
+            Printer::pluck('color'),
+            Printer::pluck('double_sided'),
+            Printer::pluck('user_id'),
         ];
     }
 }
