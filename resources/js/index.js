@@ -1,43 +1,51 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFnYWxpLWYiLCJhIjoiY2wxbmc2bTcxMHA5dzNpcXJ3NG5iOGc4eCJ9.hc1mwIb1k0yBsaY__Dcecw';
+const apiToken = 'pk.eyJ1IjoibWFnYWxpLWYiLCJhIjoiY2wxbmc2bTcxMHA5dzNpcXJ3NG5iOGc4eCJ9.hc1mwIb1k0yBsaY__Dcecw';
 
-const getCoordsFromAddress = async () => {
-    const mapboxClient = mapboxSdk({accessToken: mapboxgl.accessToken});
+mapboxgl.accessToken = apiToken;
 
-    mapboxClient.geocoding
-        .forwardGeocode({
-            query: 'kraaistraat 18 9000 Belgium',
-            autocomplete: false,
-            limit: 1
-        })
-        .send()
-        .then((response) => {
-            if (
-                !response ||
-                !response.body ||
-                !response.body.features ||
-                !response.body.features.length
-            ) {
-                console.error('Invalid response:');
-                console.error(response);
-                return;
-            }
+// const getCoordsFromAddress = async (address) => {
+//     const mapboxClient = mapboxSdk({accessToken: mapboxgl.accessToken});
+//
+//     mapboxClient.geocoding
+//         .forwardGeocode({
+//             query: address,
+//             autocomplete: false,
+//             limit: 1
+//         })
+//         .send()
+//         .then((response) => {
+//             if (
+//                 !response ||
+//                 !response.body ||
+//                 !response.body.features ||
+//                 !response.body.features.length
+//             ) {
+//                 console.error('Invalid response:');
+//                 console.error(response);
+//                 return;
+//             }
+//
+//
+//             const feature = response.body.features[0];
+//             console.log(feature);
+//             return feature;
+//             // createMap(feature);
+//         });
+// }
 
-            feature = response.body.features[0];
-            console.log(feature);
-            createMap(feature);
-        });
-}
 
+// CREATE MAP
+
+let map;
 
 const createMap = (data) => {
     if (!data[0][0]) {
         return;
     }
 
-    const map = new mapboxgl.Map({
+    map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [data[0][0], data[1][0]],
+        center: [3.7303, 51.0500],
         zoom: 10
     });
 
@@ -55,4 +63,28 @@ const run = () => {
         .then(data => createMap(data));
 }
 run();
+
+
+// SEARCH
+
+const handleSearchInput = async () => {
+    const searchInput = document.querySelector('.search-input-field').value;
+
+    if (searchInput) {
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchInput}.json?limit=1&access_token=${apiToken}`)
+            .then(response => response.json())
+            .then(data => {
+                const lng = data.features[0].center[0];
+                const lat = data.features[0].center[1];
+
+                map.flyTo({
+                    center: [lng, lat],
+                    essential: true // this animation is considered essential with respect to prefers-reduced-motion
+                });
+            });
+    }
+};
+
+const searchButton = document.querySelector('.search-submit-button')
+searchButton.addEventListener('click', handleSearchInput);
 

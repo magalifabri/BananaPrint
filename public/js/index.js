@@ -860,56 +860,49 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFnYWxpLWYiLCJhIjoiY2wxbmc2bTcxMHA5dzNpcXJ3NG5iOGc4eCJ9.hc1mwIb1k0yBsaY__Dcecw';
+var apiToken = 'pk.eyJ1IjoibWFnYWxpLWYiLCJhIjoiY2wxbmc2bTcxMHA5dzNpcXJ3NG5iOGc4eCJ9.hc1mwIb1k0yBsaY__Dcecw';
+mapboxgl.accessToken = apiToken; // const getCoordsFromAddress = async (address) => {
+//     const mapboxClient = mapboxSdk({accessToken: mapboxgl.accessToken});
+//
+//     mapboxClient.geocoding
+//         .forwardGeocode({
+//             query: address,
+//             autocomplete: false,
+//             limit: 1
+//         })
+//         .send()
+//         .then((response) => {
+//             if (
+//                 !response ||
+//                 !response.body ||
+//                 !response.body.features ||
+//                 !response.body.features.length
+//             ) {
+//                 console.error('Invalid response:');
+//                 console.error(response);
+//                 return;
+//             }
+//
+//
+//             const feature = response.body.features[0];
+//             console.log(feature);
+//             return feature;
+//             // createMap(feature);
+//         });
+// }
+// CREATE MAP
 
-var getCoordsFromAddress = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-    var mapboxClient;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            mapboxClient = mapboxSdk({
-              accessToken: mapboxgl.accessToken
-            });
-            mapboxClient.geocoding.forwardGeocode({
-              query: 'kraaistraat 18 9000 Belgium',
-              autocomplete: false,
-              limit: 1
-            }).send().then(function (response) {
-              if (!response || !response.body || !response.body.features || !response.body.features.length) {
-                console.error('Invalid response:');
-                console.error(response);
-                return;
-              }
-
-              feature = response.body.features[0];
-              console.log(feature);
-              createMap(feature);
-            });
-
-          case 2:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function getCoordsFromAddress() {
-    return _ref.apply(this, arguments);
-  };
-}();
+var map;
 
 var createMap = function createMap(data) {
   if (!data[0][0]) {
     return;
   }
 
-  var map = new mapboxgl.Map({
+  map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
-    center: [data[0][0], data[1][0]],
+    center: [3.7303, 51.0500],
     zoom: 10
   }); // add markers to map
 
@@ -928,7 +921,46 @@ var run = function run() {
   });
 };
 
-run();
+run(); // SEARCH
+
+var handleSearchInput = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+    var searchInput;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            searchInput = document.querySelector('.search-input-field').value;
+
+            if (searchInput) {
+              fetch("https://api.mapbox.com/geocoding/v5/mapbox.places/".concat(searchInput, ".json?limit=1&access_token=").concat(apiToken)).then(function (response) {
+                return response.json();
+              }).then(function (data) {
+                var lng = data.features[0].center[0];
+                var lat = data.features[0].center[1];
+                map.flyTo({
+                  center: [lng, lat],
+                  essential: true // this animation is considered essential with respect to prefers-reduced-motion
+
+                });
+              });
+            }
+
+          case 2:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function handleSearchInput() {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+var searchButton = document.querySelector('.search-submit-button');
+searchButton.addEventListener('click', handleSearchInput);
 })();
 
 /******/ })()
