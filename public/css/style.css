@@ -3,20 +3,36 @@
 font-family: 'Nunito', sans-serif;
 */
 
+
+/* FADE IN PAGE ON LOAD */
+
+.hidden {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+    transition: opacity .5s ease-out;
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+
 body {
     font-family: 'Nunito', sans-serif;
 }
+
 
 #map {
     width: 300px;
     height: 200px;
 }
+
 
 .flash-message {
     position: absolute;

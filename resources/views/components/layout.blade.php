@@ -16,6 +16,10 @@
 </head>
 <body>
 
+<script>
+    document.body.className = "hidden";
+</script>
+
 @if (session()->has('status'))
     <div class="flash-message">
         {{ session('status') }}
@@ -60,5 +64,10 @@
 <footer>
     <p>footer</p>
 </footer>
+
+<script>
+    document.body.className = "visible";
+</script>
+
 </body>
 </html>
