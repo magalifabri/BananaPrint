@@ -4,8 +4,12 @@
 font-family: 'Nunito', sans-serif;
 */
 
+$blackish: #1f2937;
+$whitish: #F3F4F6;
+$gray: #4B5563;
 
-/* FADE IN PAGE ON LOAD */
+
+// FADE IN PAGE ON LOAD
 
 .hidden {
     opacity: 0;
@@ -28,6 +32,8 @@ font-family: 'Nunito', sans-serif;
 
 body {
     font-family: 'Nunito', sans-serif;
+
+    background-color: $whitish;
 }
 
 
