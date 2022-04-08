@@ -31,9 +31,10 @@ class PrintRequest extends Mailable
      */
     public function build()
     {
-        $this->from('example@example.com', 'Example');
-        $this->replyTo('replyTo@example.com', 'Reply To');
-//        $this->subject
+        $this->from('noreply@bananaprint.com', config('app.name'));
+        $this->replyTo($this->job->user->email, $this->job->user->name);
+        $this->subject('New print request from ' . $this->job->user->name);
+
         return $this->view('emails.print_request', ['job', $this->job]);
     }
 }
