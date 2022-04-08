@@ -22,9 +22,14 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
+p {
+  line-height: 1.5;
+  margin: 1rem;
+}
+
 header {
   position: relative;
-  padding: 1rem 0.5rem 1rem 2rem;
+  padding: 1rem 1.5rem 1rem 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,7 +87,7 @@ nav a {
     left: 0;
     width: 100%;
     height: 100%;
-    padding-right: 3rem;
+    padding-right: 4rem;
     display: flex;
     align-items: center;
     justify-content: right;
@@ -97,6 +102,27 @@ nav a {
     transition: opacity 0.2s ease 0.1s, top 0.2s ease-out;
   }
 }
+.intro {
+  max-width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #e0cf97;
+}
+
+.intro img {
+  max-width: 50%;
+}
+
+.text-container {
+  padding-right: 1rem;
+  flex: 1 1 40%;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
 #map {
   width: 300px;
   height: 200px;
