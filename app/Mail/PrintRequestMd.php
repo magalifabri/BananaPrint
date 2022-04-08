@@ -30,6 +30,10 @@ class PrintRequestMd extends Mailable
      */
     public function build()
     {
+//        $this->from('from.example@example.com', 'Example');
+//        $this->replyTo('replyTo@example.com', 'Reply To');
+        $this->subject('New print request from ' . $this->job->user->name);
+
         return $this->markdown('emails.print_request_md')
             ->with('job', $this->job);
     }
