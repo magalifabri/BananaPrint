@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\PrintRequest;
+use App\Mail\PrintRequestMd;
 use App\Models\Job;
 use App\Models\Printer;
 use App\Models\User;
@@ -61,7 +62,8 @@ class JobController extends Controller
         $job->save();
 
 //        dev: view mail in browser
-        return new PrintRequest($job);
+//        return new PrintRequest($job);
+        return new PrintRequestMd($job);
 
 //        send mail
     }
