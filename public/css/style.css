@@ -20,34 +20,33 @@ font-family: 'Nunito', sans-serif;
 
 body {
   font-family: "Nunito", sans-serif;
-  background-color: #F3F4F6;
 }
 
 header {
   position: relative;
-  padding: 1rem 1rem 1rem 2rem;
+  padding: 1rem 0.5rem 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(90deg, #eac30d, #ebd93e);
 }
 
 header h1 a {
   font-size: 1.5rem;
-  font-weight: 400;
   text-decoration: none;
-  color: white;
+  color: #d6a101;
 }
 
 nav {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  align-items: center;
 }
 
 nav a {
   padding: 0.3rem 1rem;
   background-color: #fff;
+  border: 3px solid #eac30d;
   border-radius: 1rem;
   text-decoration: none;
   color: black;
@@ -61,17 +60,19 @@ nav a {
 @media only screen and (max-width: 576px) {
   .menu-toggle-button {
     z-index: 1;
-    width: 1rem;
+    width: 2rem;
+    height: 2rem;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
     align-items: center;
+    justify-content: center;
   }
 
   .menu-toggle-button .dot {
-    width: 0.4rem;
-    height: 0.4rem;
-    background-color: white;
+    width: 0.3rem;
+    height: 0.3rem;
+    background-color: #d6a101;
     border-radius: 50%;
   }
 
@@ -85,7 +86,7 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: right;
-    background: linear-gradient(90deg, #eac30d, #ebd93e);
+    background-color: #fff;
     opacity: 0;
     transition: opacity 0.3s ease, top 0.5s ease-in-out;
   }

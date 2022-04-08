@@ -7,6 +7,8 @@ font-family: 'Nunito', sans-serif;
 $blackish: #1f2937;
 $whitish: #F3F4F6;
 $gray: #4B5563;
+$banana: #eac30d;
+$bananaDark: #d6a101;
 
 
 // FADE IN PAGE ON LOAD
@@ -33,26 +35,23 @@ $gray: #4B5563;
 body {
     font-family: 'Nunito', sans-serif;
 
-    background-color: $whitish;
+    //background-color: $whitish;
 }
 
 
 header {
     position: relative;
-    padding: 1rem 1rem 1rem 2rem;
+    padding: 1rem .5rem 1rem 2rem;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    background: linear-gradient(90deg, #eac30d, #ebd93e);
 }
 
 header h1 a {
     font-size: 1.5rem;
-    font-weight: 400;
     text-decoration: none;
-    color: white;
+    color: $bananaDark;
 }
 
 
@@ -60,11 +59,13 @@ nav {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    align-items: center;
 }
 
 nav a {
     padding: .3rem 1rem;
     background-color: #fff;
+    border: 3px solid $banana;
     border-radius: 1rem;
 
     text-decoration: none;
@@ -80,18 +81,20 @@ nav a {
     .menu-toggle-button {
         z-index: 1;
 
-        width: 1rem;
+        width: 2rem;
+        height: 2rem;
 
         display: flex;
         flex-direction: column;
         gap: .3rem;
         align-items: center;
+        justify-content: center;
     }
 
     .menu-toggle-button .dot {
-        width: .4rem;
-        height: .4rem;
-        background-color: white;
+        width: .3rem;
+        height: .3rem;
+        background-color: $bananaDark;
         border-radius: 50%;
     }
 
@@ -107,7 +110,7 @@ nav a {
         align-items: center;
         justify-content: right;
 
-        background: linear-gradient(90deg, #eac30d, #ebd93e);
+        background-color: #fff;
         opacity: 0;
         transition: opacity 0.3s ease, top .5s ease-in-out;
     }
