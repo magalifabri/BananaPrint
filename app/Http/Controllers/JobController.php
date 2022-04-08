@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\PrintRequest;
+use App\Mail\PrintRequestConfirmationMd;
 use App\Mail\PrintRequestMd;
 use App\Models\Job;
 use App\Models\Printer;
@@ -61,10 +62,17 @@ class JobController extends Controller
         $job['message'] = $request->message;
         $job->save();
 
+        $ownerEmail = $job->printer->user->email;
+        $seekerEmail = $job->user->email;
+
+        Mail::to($ownerEmail)
+            ->send(new PrintRequestMd($job));
+
+        Mail::to($seekerEmail)
+            ->send(new PrintRequestConfirmationMd($job));
+
 //        dev: view mail in browser
-//        return new PrintRequest($job);
         return new PrintRequestMd($job);
 
-//        send mail
     }
 }
