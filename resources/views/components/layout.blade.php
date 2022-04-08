@@ -27,12 +27,17 @@
 @endif
 
 <header>
-    <h1>{{ config('app.name') }}</h1>
+    <h1><a href="{{ route('home') }}">{{ config('app.name') }}</a></h1>
+
+    <div class="menu-toggle-button">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
 
     <nav>
         @auth
             <a href="{{ url('/dashboard') }}">Dashboard</a>
-            <span>|</span>
 {{--            <a href="{{ route('logout') }}">log out</a>--}}
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
@@ -45,7 +50,6 @@
             </form>
         @else
             <a href="{{ route('login') }}">log in</a>
-            <span>|</span>
             <a href="{{ route('register') }}">register</a>
         @endauth
     </nav>

@@ -20,11 +20,95 @@ font-family: 'Nunito', sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    /*border: 1px solid gray;*/
 }
 
 
 body {
     font-family: 'Nunito', sans-serif;
+}
+
+
+header {
+    position: relative;
+    padding: 1rem 1rem 1rem 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: linear-gradient(90deg, #eac30d, #ebd93e);
+}
+
+header h1 a {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-decoration: none;
+    color: white;
+}
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+nav a {
+    padding: .3rem 1rem;
+    background-color: #fff;
+    border-radius: 1rem;
+
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.menu-toggle-button {
+    display: none;
+}
+
+@media only screen and (max-width: 576px) {
+    .menu-toggle-button {
+        z-index: 1;
+
+        width: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: .3rem;
+        align-items: center;
+    }
+
+    .menu-toggle-button .dot {
+        width: .4rem;
+        height: .4rem;
+        background-color: white;
+        border-radius: 50%;
+    }
+
+    nav {
+        position: absolute;
+        top: -5rem;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-right: 3rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: right;
+
+        background: linear-gradient(90deg, #eac30d, #ebd93e);
+        opacity: 0;
+        transition: opacity 0.3s ease, top .5s ease-in-out;
+    }
+    nav.active {
+        top: 0;
+        opacity: 1;
+        transition: opacity 0.2s ease .1s, top .2s ease-out;
+    }
 }
 
 
