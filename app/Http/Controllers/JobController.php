@@ -4,12 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Mail\PrintRequest;
 use App\Mail\PrintRequestConfirmation;
-use App\Mail\PrintRequestConfirmationMd;
-use App\Mail\PrintRequestMd;
 use App\Models\Job;
 use App\Models\Printer;
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class JobController extends Controller
@@ -73,7 +69,8 @@ class JobController extends Controller
             ->send(new PrintRequestConfirmation($job));
 
 //        dev: view mail in browser
-        return new PrintRequest($job);
+//        return new PrintRequest($job);
 
+        return redirect(route('home'));
     }
 }
