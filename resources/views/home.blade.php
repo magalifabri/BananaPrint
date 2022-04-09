@@ -1,12 +1,12 @@
 <x-layout>
 
     <section class="intro">
-        <h2 class="header">Connecting those without printers to those with, for little print jobs.</h2>
+        <h2 class="header">Connecting those with printers to those without, for little print jobs.</h2>
 
         <img src="{{ asset('images/bananas.jpg') }}"
              alt="image of a woman's hand holding a bunch of banana on a yellow background">
 
-        <p class="subtext">As reciprocation, we suggest a banana. By many claimed to be the ultimate healthy snack!</p>
+        <p class="subtext">As reciprocation, we suggest a banana - the indisputable #1 tastiest, healthiest, <em>bestest</em> snack!</p>
     </section>
 
     <section class="instructions">
