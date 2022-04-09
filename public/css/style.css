@@ -24,7 +24,6 @@ body {
 
 p {
   line-height: 1.5;
-  margin: 1rem;
 }
 
 header {
@@ -105,24 +104,55 @@ nav a {
 .intro {
   max-width: 100%;
   padding: 2rem 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
   background-color: #e0cf97;
+  font-size: 1.4rem;
+}
+
+.intro .header,
+.intro .subtext {
+  padding: 0 2rem;
+  text-align: center;
 }
 
 .intro img {
-  max-width: 50%;
+  max-width: 80%;
 }
 
 .text-container {
   padding-right: 1rem;
-  flex: 1 1 40%;
   font-size: 1.2rem;
   text-align: center;
+  min-width: 250px;
 }
 
+@media only screen and (min-width: 576px) {
+  .intro {
+    display: grid;
+    grid-template-areas: "img header" "img subtext";
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .intro .header,
+.intro .subtext {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .intro img {
+    grid-area: img;
+    max-width: 100%;
+  }
+
+  .intro .header {
+    grid-area: header;
+  }
+
+  .intro .subtext {
+    grid-area: subtext;
+  }
+}
 #map {
   width: 300px;
   height: 200px;

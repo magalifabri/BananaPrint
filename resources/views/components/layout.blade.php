@@ -55,8 +55,6 @@
     </nav>
 </header>
 
-<hr>
-
 <main>
 
     {{ $slot }}
