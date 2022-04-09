@@ -889,10 +889,17 @@ var createMap = function createMap(data) {
       offset: 25
     }).setHTML("<p>color: ".concat(color, " </p>") + "<p>double-sided: ".concat(_double, " </p>") + "<p><a href=\"/contact-owner/".concat(printerId, "\">link</a></p>"));
     new mapboxgl.Marker().setLngLat([lng, lat]).setPopup(popup).addTo(map);
-  }); // Code snippet taken from https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
-  // Add geolocate control to the map.
+  }); // add geocoder search box to the map
+  // code taken from https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/
 
-  map.addControl(new mapboxgl.GeolocateControl({
+  var geocoder = new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    mapboxgl: mapboxgl
+  });
+  document.querySelector('.geocoder').appendChild(geocoder.onAdd(map)); // add geolocate control to the map
+  // code snippet taken from https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
+
+  var geolocator = new mapboxgl.GeolocateControl({
     positionOptions: {
       enableHighAccuracy: true
     },
@@ -900,7 +907,8 @@ var createMap = function createMap(data) {
     trackUserLocation: true,
     // Draw an arrow next to the location dot to indicate which direction the device is heading.
     showUserHeading: true
-  }));
+  });
+  document.querySelector('.geolocator').appendChild(geolocator.onAdd(map));
 };
 
 var run = function run() {

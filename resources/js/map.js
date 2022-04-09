@@ -27,7 +27,7 @@ const createMap = (data) => {
         const double = data[3][index] ? 'yes' : 'no';
         const printerId = data[4][index];
 
-        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        const popup = new mapboxgl.Popup({offset: 25}).setHTML(
             `<p>color: ${color} </p>`
             + `<p>double-sided: ${double} </p>`
             + `<p><a href=\"/contact-owner/${printerId}\">link</a></p>`
@@ -36,19 +36,28 @@ const createMap = (data) => {
         new mapboxgl.Marker().setLngLat([lng, lat]).setPopup(popup).addTo(map);
     });
 
-    // Code snippet taken from https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
-    // Add geolocate control to the map.
-    map.addControl(
-        new mapboxgl.GeolocateControl({
-            positionOptions: {
-                enableHighAccuracy: true
-            },
-            // When active the map will receive updates to the device's location as it changes.
-            trackUserLocation: true,
-            // Draw an arrow next to the location dot to indicate which direction the device is heading.
-            showUserHeading: true
-        })
-    );
+    // add geocoder search box to the map
+    // code taken from https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/
+    const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    });
+
+    document.querySelector('.geocoder').appendChild(geocoder.onAdd(map));
+
+    // add geolocate control to the map
+    // code snippet taken from https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
+    const geolocator = new mapboxgl.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        // When active the map will receive updates to the device's location as it changes.
+        trackUserLocation: true,
+        // Draw an arrow next to the location dot to indicate which direction the device is heading.
+        showUserHeading: true
+    });
+
+    document.querySelector('.geolocator').appendChild(geolocator.onAdd(map));
 }
 
 const run = () => {

@@ -6,7 +6,8 @@
         <img src="{{ asset('images/bananas.jpg') }}"
              alt="image of a woman's hand holding a bunch of banana on a yellow background">
 
-        <p class="subtext">As reciprocation, we suggest a banana - the indisputable #1 tastiest, healthiest, <em>bestest</em> snack!</p>
+        <p class="subtext">As reciprocation, we suggest a banana - the indisputable #1 tastiest, healthiest,
+            <em>bestest</em> snack!</p>
     </section>
 
     <section class="instructions">
@@ -57,15 +58,26 @@
         </div>
     </section>
 
-    <p>
-        search for printers near <input class="search-input-field" type="text" name="location"
-                                        placeholder="street, city / zipcode">
-        <input class="search-submit-button" type="submit">
-    </p>
+    <section class="map">
+        <p>
+            search for printers near
+            <input class="search-input-field" type="text" name="location"
+                   placeholder="street, city / zipcode">
+            <input class="search-submit-button" type="submit">
+        </p>
 
-    <div id="map"></div>
+        {{-- Load the `mapbox-gl-geocoder` plugin. --}}
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 
-    <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
-    <script src="{{ mix('js/map.js') }}"></script>
+        <div id="map" class="mapbox">
+            <div class="geolocator"></div>
+            <div class="geocoder"></div>
+        </div>
+
+        {{-- script to add markers to map --}}
+        <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+        <script src="{{ mix('js/map.js') }}"></script>
+    </section>
 
 </x-layout>

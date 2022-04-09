@@ -265,8 +265,22 @@ nav a {
 }
 
 #map {
-  width: 300px;
-  height: 200px;
+  width: 100vw;
+  height: 70vh;
+}
+
+.geocoder {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+}
+
+.geolocator {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
 }
 
 .flash-message {
