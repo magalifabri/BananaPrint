@@ -9,6 +9,8 @@ $whitish: #F3F4F6;
 $gray: #4B5563;
 $banana: #eac30d;
 $bananaDark: #d6a101;
+$accent: #199695;
+$accent2: #5b53e0;
 
 
 // FADE IN PAGE ON LOAD
@@ -28,19 +30,27 @@ $bananaDark: #d6a101;
     margin: 0;
     padding: 0;
 
-    border: 1px solid gray;
+    //border: 1px solid gray;
 }
 
 
 body {
     font-family: 'Nunito', sans-serif;
     color: $blackish;
+    min-width: 300px;
     //background-color: $whitish;
 }
 
 p {
     line-height: 1.5;
     //margin: 1rem;
+}
+
+ol,
+ul
+{
+    padding-left: 1rem;
+    margin-left: 1rem;
 }
 
 
@@ -150,7 +160,7 @@ nav a {
     max-width: 80%;
 }
 
-.text-container {
+.intro .text-container {
     padding-right: 1rem;
     font-size: 1.2rem;
     text-align: center;
@@ -198,8 +208,8 @@ nav a {
     padding: 2rem;
 }
 
-.instructions .header {
-    font-size: 1.5rem;
+.instructions-header {
+    font-size: 2rem;
     font-weight: bold;
     text-align: center;
 }
@@ -213,7 +223,7 @@ nav a {
     justify-content: center;
     gap: 2rem;
 
-    margin: 1rem 0 2rem 0;
+    margin: 2rem 0 2.5rem 0;
 }
 
 .instructions .button {
@@ -264,6 +274,46 @@ nav a {
 }
 .parts-container .seeker.part {
     transform: translateX(0);
+}
+
+
+// parts styling
+
+.parts-container {
+    text-align: left;
+    font-size: 1.2rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.part-header {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.reward-insert {
+    transition: all .3s ease;
+
+    display: inline-flex; // required to  set width
+    width: 10ch; // because 'chocolates' is 10 characters
+    font-weight: 700;
+}
+
+.parts-container .text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.parts-container p {
+    font-weight: 700;
+}
+
+.parts-container a {
+    font-weight: 700;
+    color: $accent2;
+    text-decoration: none;
 }
 
 

@@ -19,6 +19,7 @@ menuButton.addEventListener('click', function () {
   menuButton.classList.toggle('active');
   navElem.classList.toggle('active');
 }); // INSTRUCTION SELECTION
+// owner-seeker toggle
 
 var yesButton = document.querySelector('.selection .button.yes');
 var noButton = document.querySelector('.selection .button.no');
@@ -39,6 +40,31 @@ noButton.addEventListener('click', function () {
     noButton.classList.toggle('active');
     seekerPartDiv.classList.toggle('active');
   }
-});
+}); // reward swapping
+
+var rewardInsertSpan = document.querySelector('span.reward-insert');
+var rewards = ['apples', // 'bananas',
+// 'oranges',
+// 'bananas',
+// 'cookies',
+// 'bananas',
+// 'muffins',
+// 'bananas',
+// 'flowers',
+// 'bananas',
+'chocolates' // 'bananas',
+];
+var i = 0;
+setInterval(function () {
+  rewardInsertSpan.style.opacity = '0';
+  setTimeout(function () {
+    rewardInsertSpan.textContent = rewards[i++] + '!';
+    rewardInsertSpan.style.opacity = '1';
+
+    if (i === rewards.length) {
+      i = 0;
+    }
+  }, 100);
+}, 3000);
 /******/ })()
 ;

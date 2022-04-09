@@ -22,6 +22,8 @@ menuButton.addEventListener('click', () => {
 
 // INSTRUCTION SELECTION
 
+// owner-seeker toggle
+
 const yesButton = document.querySelector('.selection .button.yes');
 const noButton = document.querySelector('.selection .button.no');
 const ownerPartDiv = document.querySelector('.instructions .owner.part');
@@ -44,3 +46,36 @@ noButton.addEventListener('click', () => {
         seekerPartDiv.classList.toggle('active');
     }
 })
+
+
+// reward swapping
+
+const rewardInsertSpan = document.querySelector('span.reward-insert');
+const rewards = [
+    'apples',
+    // 'bananas',
+    // 'oranges',
+    // 'bananas',
+    // 'cookies',
+    // 'bananas',
+    // 'muffins',
+    // 'bananas',
+    // 'flowers',
+    // 'bananas',
+    'chocolates',
+    // 'bananas',
+];
+let i = 0;
+
+setInterval(() => {
+    rewardInsertSpan.style.opacity = '0';
+
+    setTimeout(() => {
+        rewardInsertSpan.textContent = rewards[i++] + '!';
+        rewardInsertSpan.style.opacity = '1';
+
+        if (i === rewards.length) {
+            i = 0;
+        }
+    }, 100);
+}, 3000)

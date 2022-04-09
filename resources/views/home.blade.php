@@ -11,7 +11,7 @@
 
     <section class="instructions">
         <div class="selection">
-            <p class="header">Do you have a printer?</p>
+            <p class="instructions-header">Do you have a printer?</p>
 
             <div class="buttons">
                 <span class="button yes active">yes</span>
@@ -21,7 +21,19 @@
 
         <div class="parts-container">
             <div class="owner part active">
-                <h2 class="header">owner header</h2>
+                <h2 class="part-header">Print for your community in exchange for <span class="reward-insert">bananas!</span></h2>
+
+                <div class="text-container">
+                    <p>Setting up is super easy!</p>
+
+                    <ol>
+                        <li>create an <a href="{{ route('register') }}">account</a></li>
+                        <li>add a printer on your <a href="{{ route('dashboard') }}">dashboard</a></li>
+                        <li>keep an eye on your regular mailbox for print requests</li>
+                    </ol>
+
+                    <p>That's all!</p>
+                </div>
             </div>
 
             <div class="seeker part">
