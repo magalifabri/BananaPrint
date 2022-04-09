@@ -20,8 +20,9 @@
         </div>
 
         <div class="parts-container">
-            <div class="owner part active">
-                <h2 class="part-header">Print for your community in exchange for <span class="reward-insert">bananas!</span></h2>
+            <div class="part owner active">
+                <h2 class="part-header">Print for your community in exchange for <span
+                        class="reward-insert">bananas!</span></h2>
 
                 <div class="text-container">
                     <p>Setting up is super easy!</p>
@@ -36,8 +37,22 @@
                 </div>
             </div>
 
-            <div class="seeker part">
-                <h2 class="header">seeker header</h2>
+            <div class="part seeker">
+                <h2 class="part-header">Effortlessly reach out to printer-owners</h2>
+
+                <div class="text-container">
+                    <p>It only takes a couple minutes!</p>
+
+                    <ol>
+                        <li>create an <a href="{{ route('register') }}">account</a></li>
+                        <li>select a printer-owner from the <a href="#map">map</a></li>
+                        <li>fill in the form & hit send</li>
+                        <li>keep an eye on your regular mailbox for a reply</li>
+                    </ol>
+
+                    <p>Done!</p>
+                </div>
+
             </div>
         </div>
     </section>
