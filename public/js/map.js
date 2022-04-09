@@ -889,7 +889,18 @@ var createMap = function createMap(data) {
       offset: 25
     }).setHTML("<p>color: ".concat(color, " </p>") + "<p>double-sided: ".concat(_double, " </p>") + "<p><a href=\"/contact-owner/".concat(printerId, "\">link</a></p>"));
     new mapboxgl.Marker().setLngLat([lng, lat]).setPopup(popup).addTo(map);
-  });
+  }); // Code snippet taken from https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
+  // Add geolocate control to the map.
+
+  map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+      enableHighAccuracy: true
+    },
+    // When active the map will receive updates to the device's location as it changes.
+    trackUserLocation: true,
+    // Draw an arrow next to the location dot to indicate which direction the device is heading.
+    showUserHeading: true
+  }));
 };
 
 var run = function run() {
