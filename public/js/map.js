@@ -874,7 +874,9 @@ var createMap = function createMap(data) {
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
     center: [3.7303, 51.0500],
-    zoom: 10
+    zoom: 10,
+    cooperativeGestures: true // allows the user to scroll the page without unintentionally zooming or panning the map (https://docs.mapbox.com/mapbox-gl-js/example/cooperative-gestures/)
+
   }); // add markers to map
 
   data[0].forEach(function (element, index) {
