@@ -20,6 +20,7 @@ font-family: 'Nunito', sans-serif;
 
 body {
   font-family: "Nunito", sans-serif;
+  color: #1f2937;
 }
 
 p {
@@ -156,6 +157,37 @@ nav a {
 .instructions {
   width: 100%;
   padding: 2rem;
+}
+
+.instructions .header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.instructions .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0 2rem 0;
+}
+
+.instructions .button {
+  padding: 0.3rem 1rem;
+  background-color: #fff;
+  border: 3px solid #eac30d;
+  border-radius: 1.5rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.instructions .button.active {
+  background-color: #eac30d;
+  color: white;
 }
 
 .instructions .parts-container {

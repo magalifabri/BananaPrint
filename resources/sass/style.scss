@@ -34,7 +34,7 @@ $bananaDark: #d6a101;
 
 body {
     font-family: 'Nunito', sans-serif;
-
+    color: $blackish;
     //background-color: $whitish;
 }
 
@@ -197,6 +197,46 @@ nav a {
     width: 100%;
     padding: 2rem;
 }
+
+.instructions .header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+// buttons
+
+.instructions .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+
+    margin: 1rem 0 2rem 0;
+}
+
+.instructions .button {
+    padding: .3rem 1rem;
+    background-color: #fff;
+    border: 3px solid $banana;
+    border-radius: 1.5rem;
+
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    transition: all .3s ease;
+}
+
+.instructions .button.active {
+    background-color: $banana;
+    color: white;
+}
+
+
+// owner-seeker swapping rules
 
 .instructions .parts-container {
     display: grid;

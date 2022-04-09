@@ -12,8 +12,11 @@
     <section class="instructions">
         <div class="selection">
             <p class="header">Do you have a printer?</p>
-            <span class="button yes active">yes</span>
-            <span class="button no">no</span>
+
+            <div class="buttons">
+                <span class="button yes active">yes</span>
+                <span class="button no">no</span>
+            </div>
         </div>
 
         <div class="parts-container">
