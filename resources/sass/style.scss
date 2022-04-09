@@ -28,7 +28,7 @@ $bananaDark: #d6a101;
     margin: 0;
     padding: 0;
 
-    /*border: 1px solid gray;*/
+    border: 1px solid gray;
 }
 
 
@@ -59,6 +59,8 @@ header h1 a {
     color: $bananaDark;
 }
 
+
+// >> NAVIGATION
 
 nav {
     display: flex;
@@ -127,6 +129,8 @@ nav a {
 }
 
 
+// >> INTRO SECTION
+
 .intro {
     max-width: 100%;
     padding: 2rem 0;
@@ -187,11 +191,51 @@ nav a {
 }
 
 
+// >> INSTRUCTIONS
+
+.instructions {
+    width: 100%;
+    padding: 2rem;
+}
+
+.instructions .parts-container {
+    display: grid;
+    grid-template-columns: 100% 100%;
+    overflow: hidden;
+}
+
+.parts-container .part.active {
+    opacity: 1;
+    transition: opacity .5s ease .25s, transform 0s ease; // way in
+}
+.parts-container .part {
+    opacity: 0;
+    transition: opacity .5s ease, transform .5s ease .5s; // way out
+}
+
+.parts-container .owner.part.active {
+    transform: translateX(0);
+}
+.parts-container .owner.part {
+    transform: translateX(-100%);
+}
+.parts-container .seeker.part.active {
+    transform: translateX(-100%);
+}
+.parts-container .seeker.part {
+    transform: translateX(0);
+}
+
+
+// >> MAP
+
 #map {
     width: 300px;
     height: 200px;
 }
 
+
+// >> FLASH MESSAGE
 
 .flash-message {
     position: absolute;

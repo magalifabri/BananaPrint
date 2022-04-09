@@ -15,7 +15,7 @@ font-family: 'Nunito', sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /*border: 1px solid gray;*/
+  border: 1px solid gray;
 }
 
 body {
@@ -153,6 +153,43 @@ nav a {
     grid-area: subtext;
   }
 }
+.instructions {
+  width: 100%;
+  padding: 2rem;
+}
+
+.instructions .parts-container {
+  display: grid;
+  grid-template-columns: 100% 100%;
+  overflow: hidden;
+}
+
+.parts-container .part.active {
+  opacity: 1;
+  transition: opacity 0.5s ease 0.25s, transform 0s ease;
+}
+
+.parts-container .part {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease 0.5s;
+}
+
+.parts-container .owner.part.active {
+  transform: translateX(0);
+}
+
+.parts-container .owner.part {
+  transform: translateX(-100%);
+}
+
+.parts-container .seeker.part.active {
+  transform: translateX(-100%);
+}
+
+.parts-container .seeker.part {
+  transform: translateX(0);
+}
+
 #map {
   width: 300px;
   height: 200px;
