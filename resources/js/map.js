@@ -33,7 +33,9 @@ const createMap = (data) => {
             + `<p><a href=\"/contact-owner/${printerId}\">link</a></p>`
         );
 
-        new mapboxgl.Marker().setLngLat([lng, lat]).setPopup(popup).addTo(map);
+        new mapboxgl.Marker({
+            color: "#5b53e0"
+        }).setLngLat([lng, lat]).setPopup(popup).addTo(map);
     });
 
     // add geocoder search box to the map

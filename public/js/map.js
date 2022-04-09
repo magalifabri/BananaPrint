@@ -888,7 +888,9 @@ var createMap = function createMap(data) {
     var popup = new mapboxgl.Popup({
       offset: 25
     }).setHTML("<p>color: ".concat(color, " </p>") + "<p>double-sided: ".concat(_double, " </p>") + "<p><a href=\"/contact-owner/".concat(printerId, "\">link</a></p>"));
-    new mapboxgl.Marker().setLngLat([lng, lat]).setPopup(popup).addTo(map);
+    new mapboxgl.Marker({
+      color: "#5b53e0"
+    }).setLngLat([lng, lat]).setPopup(popup).addTo(map);
   }); // add geocoder search box to the map
   // code taken from https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/
 
