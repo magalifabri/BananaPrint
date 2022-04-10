@@ -26,8 +26,8 @@ class PrinterController extends Controller
 
         $printer = new Printer;
         $printer['user_id'] = Auth::id();
-        $printer['color'] = $request->color;
-        $printer['double_sided'] = $request->doubleSided ?? false;
+        $printer['color'] = $request->color ?? '0';
+        $printer['double_sided'] = $request->doubleSided ?? '0';
         $printer['street'] = $request->street;
         $printer['street_number'] = $request->streetNumber;
         $printer['zipcode'] = $request->zipcode;
