@@ -905,7 +905,7 @@ var createMap = function createMap(data) {
     var printerId = data[4][index];
     var popup = new mapboxgl.Popup({
       offset: 25
-    }).setHTML("<p>".concat(color, " </p>") + "<p>".concat(_double, " </p>") + "<br>" + "<p><a href=\"/contact-owner/".concat(printerId, "\">contact</a></p>"));
+    }).setHTML("<p>".concat(color, " </p>") + "<p>".concat(_double, " </p>") + "<br>" + "<p><a href=\"/contact-owner/".concat(printerId, "\" class=\"button-style-1\">contact</a></p>"));
     new mapboxgl.Marker({
       color: getColor(color, _double)
     }).setLngLat([lng, lat]).setPopup(popup).addTo(map);

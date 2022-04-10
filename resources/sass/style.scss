@@ -25,6 +25,8 @@ $accent2: #5b53e0;
 }
 
 
+// GLOBAL STYLING
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -53,6 +55,19 @@ ul
     margin-left: 1rem;
 }
 
+.button-style-1 {
+    padding: .3rem 1rem;
+    background-color: #fff;
+    border: 3px solid $banana;
+    border-radius: 2rem;
+
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+
+// >> HEADER
 
 header {
     position: relative;
@@ -77,17 +92,6 @@ nav {
     flex-direction: row;
     gap: 1rem;
     align-items: center;
-}
-
-nav a {
-    padding: .3rem 1rem;
-    background-color: #fff;
-    border: 3px solid $banana;
-    border-radius: 1rem;
-
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
 }
 
 .menu-toggle-button {
@@ -399,17 +403,6 @@ section.map .subheader {
     line-height: 1.2;
     text-transform: uppercase;
     text-align: center;
-
-    a {
-        padding: .3rem 1rem;
-        background-color: #fff;
-        border: 3px solid $banana;
-        border-radius: 1rem;
-
-        text-decoration: none;
-        color: black;
-        font-weight: 600;
-    }
 }
 
 .mapboxgl-popup-close-button {

@@ -37,20 +37,19 @@
 
     <nav>
         @auth
-            <a href="{{ url('/dashboard') }}">Dashboard</a>
-{{--            <a href="{{ route('logout') }}">log out</a>--}}
+            <a href="{{ url('/dashboard') }}" class="button-style-1">dashboard</a>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
-                <x-responsive-nav-link :href="route('logout')"
+                <x-responsive-nav-link class="button-style-1" :href="route('logout')"
                                        onclick="event.preventDefault();
                                         this.closest('form').submit();">
                     {{ __('log out') }}
                 </x-responsive-nav-link>
             </form>
         @else
-            <a href="{{ route('login') }}">log in</a>
-            <a href="{{ route('register') }}">register</a>
+            <a href="{{ route('login') }}" class="button-style-1">log in</a>
+            <a href="{{ route('register') }}" class="button-style-1">register</a>
         @endauth
     </nav>
 </header>

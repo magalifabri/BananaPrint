@@ -49,7 +49,7 @@ const createMap = (data) => {
             `<p>${color} </p>`
             + `<p>${double} </p>`
             + `<br>`
-            + `<p><a href=\"/contact-owner/${printerId}\">contact</a></p>`
+            + `<p><a href=\"/contact-owner/${printerId}\" class="button-style-1">contact</a></p>`
         );
 
         new mapboxgl.Marker({

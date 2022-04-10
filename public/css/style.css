@@ -33,6 +33,16 @@ ul {
   margin-left: 1rem;
 }
 
+.button-style-1 {
+  padding: 0.3rem 1rem;
+  background-color: #fff;
+  border: 3px solid #eac30d;
+  border-radius: 2rem;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
 header {
   position: relative;
   padding: 1rem 1.5rem 1rem 3rem;
@@ -52,16 +62,6 @@ nav {
   flex-direction: row;
   gap: 1rem;
   align-items: center;
-}
-
-nav a {
-  padding: 0.3rem 1rem;
-  background-color: #fff;
-  border: 3px solid #eac30d;
-  border-radius: 1rem;
-  text-decoration: none;
-  color: black;
-  font-weight: 600;
 }
 
 .menu-toggle-button {
@@ -327,15 +327,6 @@ section.map .subheader {
   line-height: 1.2;
   text-transform: uppercase;
   text-align: center;
-}
-.mapboxgl-popup-content a {
-  padding: 0.3rem 1rem;
-  background-color: #fff;
-  border: 3px solid #eac30d;
-  border-radius: 1rem;
-  text-decoration: none;
-  color: black;
-  font-weight: 600;
 }
 
 .mapboxgl-popup-close-button {
