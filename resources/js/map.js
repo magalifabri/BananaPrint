@@ -6,8 +6,8 @@ mapboxgl.accessToken = apiToken;
 // CREATE MAP
 
 const getColor = (isColor, isDouble) => {
-    if (isColor === 'yes') {
-        if (isDouble === 'yes') {
+    if (isColor === 'color') {
+        if (isDouble === 'double-sided') {
             return '#ffc000';
         } else {
             return '#ffdc4a';
@@ -41,14 +41,15 @@ const createMap = (data) => {
     data[0].forEach((element, index) => {
         const lng = element;
         const lat = data[1][index];
-        const color = data[2][index] ? 'yes' : 'no';
-        const double = data[3][index] ? 'yes' : 'no';
+        const color = data[2][index] ? 'color' : 'grayscale';
+        const double = data[3][index] ? 'double-sided' : 'single-sided';
         const printerId = data[4][index];
 
         const popup = new mapboxgl.Popup({offset: 25}).setHTML(
-            `<p>color: ${color} </p>`
-            + `<p>double-sided: ${double} </p>`
-            + `<p><a href=\"/contact-owner/${printerId}\">link</a></p>`
+            `<p>${color} </p>`
+            + `<p>${double} </p>`
+            + `<br>`
+            + `<p><a href=\"/contact-owner/${printerId}\">contact</a></p>`
         );
 
         new mapboxgl.Marker({

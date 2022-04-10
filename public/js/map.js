@@ -864,8 +864,8 @@ var apiToken = 'pk.eyJ1IjoibWFnYWxpLWYiLCJhIjoiY2wxbmc2bTcxMHA5dzNpcXJ3NG5iOGc4e
 mapboxgl.accessToken = apiToken; // CREATE MAP
 
 var getColor = function getColor(isColor, isDouble) {
-  if (isColor === 'yes') {
-    if (isDouble === 'yes') {
+  if (isColor === 'color') {
+    if (isDouble === 'double-sided') {
       return '#ffc000';
     } else {
       return '#ffdc4a';
@@ -898,14 +898,14 @@ var createMap = function createMap(data) {
   data[0].forEach(function (element, index) {
     var lng = element;
     var lat = data[1][index];
-    var color = data[2][index] ? 'yes' : 'no';
+    var color = data[2][index] ? 'color' : 'grayscale';
 
-    var _double = data[3][index] ? 'yes' : 'no';
+    var _double = data[3][index] ? 'double-sided' : 'single-sided';
 
     var printerId = data[4][index];
     var popup = new mapboxgl.Popup({
       offset: 25
-    }).setHTML("<p>color: ".concat(color, " </p>") + "<p>double-sided: ".concat(_double, " </p>") + "<p><a href=\"/contact-owner/".concat(printerId, "\">link</a></p>"));
+    }).setHTML("<p>".concat(color, " </p>") + "<p>".concat(_double, " </p>") + "<br>" + "<p><a href=\"/contact-owner/".concat(printerId, "\">contact</a></p>"));
     new mapboxgl.Marker({
       color: getColor(color, _double)
     }).setLngLat([lng, lat]).setPopup(popup).addTo(map);
