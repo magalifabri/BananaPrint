@@ -4,7 +4,9 @@
 
             <section class="box-style-1">
                 @unless ($user['has_printer'])
-                    <a href="{{ route('createPrinter') }}" class="button-style-1 add-printer">add printer</a>
+                    <div class="button-container">
+                        <a href="{{ route('createPrinter') }}" class="button-style-1 add-printer">add printer</a>
+                    </div>
                 @else
                     <p class="header">Your Printer</p>
                     <p class="label">Color</p>

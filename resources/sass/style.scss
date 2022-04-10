@@ -503,12 +503,9 @@ body {
 }
 
 main.dashboard section {
-    // make add printer button appear in center
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .add-printer {
+    .button-container {
+        display: flex;
+        justify-content: center;
         margin: 2rem 0;
     }
 

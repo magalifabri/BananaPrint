@@ -403,12 +403,9 @@ body {
   flex-direction: column;
 }
 
-main.dashboard section {
+main.dashboard section .button-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-main.dashboard section .add-printer {
   margin: 2rem 0;
 }
 main.dashboard section .header {
