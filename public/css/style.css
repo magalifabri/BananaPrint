@@ -17,6 +17,10 @@ font-family: 'Nunito', sans-serif;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Nunito", sans-serif;
   color: #1f2937;
