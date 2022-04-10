@@ -1,20 +1,38 @@
-@extends('layouts.my_app')
+<x-layout>
+    <x-slot name="main">
+        <main class="create-printer main-style-center">
 
-@section('main')
+            <form action="{{ route('storePrinter') }}" method="POST" class="box-style-1">
+                @csrf
 
-    <form action="{{ route('storePrinter') }}" method="POST">
-        @csrf
+                <p class="header">Printer's Capabilities</p>
 
-        <p>printing options</p>
-        <p>color: <input type="checkbox" name="color" value="1"></p>
-        <p>double-sided: <input type="checkbox" name="doubleSided" value="1"></p>
+                <label for="color">
+                    <input type="checkbox" name="color" value="1" id="color">
+                    <span class="checkbox-label">Color</span>
+                </label>
 
-        <p>address</p>
-        <p>street: <input type="text" name="street"></p>
-        <p>street number: <input type="number" name="streetNumber"></p>
-        <p>zipcode: <input type="text" name="zipcode"></p>
+                <label for="doubleSided">
+                    <input type="checkbox" name="doubleSided" value="1" id="doubleSided">
+                    <span class="checkbox-label">Double-sided</span>
+                </label>
 
-        <p><input type="submit"></p>
-    </form>
+                <br>
 
-@endsection
+                <p class="header">Address</p>
+
+                <label for="street">Street</label>
+                <input type="text" name="street" id="street">
+
+                <label for="street-number">Street number</label>
+                <input type="number" name="streetNumber" id="street-number">
+
+                <label for="zipcode">Zipcode</label>
+                <input type="text" name="zipcode" id="zipcode">
+
+                <input type="submit" value="save">
+            </form>
+
+        </main>
+    </x-slot>
+</x-layout>
