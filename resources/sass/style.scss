@@ -4,7 +4,8 @@
 font-family: 'Nunito', sans-serif;
 */
 
-$blackish: #1f2937;
+//$blackish: #1f2937;
+$blackish: #374151;
 $whitish: #F3F4F6;
 $gray: #4B5563;
 $banana: #eac30d;
@@ -52,8 +53,7 @@ p {
 }
 
 ol,
-ul
-{
+ul {
     padding-left: 1rem;
     margin-left: 1rem;
 }
@@ -157,8 +157,7 @@ nav {
 }
 
 .intro .header,
-.intro .subtext
-{
+.intro .subtext {
     padding: 0 2rem;
     text-align: center;
 }
@@ -188,8 +187,7 @@ nav {
         justify-content: center;
 
         .header,
-        .subtext
-        {
+        .subtext {
             max-width: 500px;
             margin: 0 auto;
         }
@@ -265,6 +263,7 @@ nav {
     opacity: 1;
     transition: opacity .5s ease .25s, transform 0s ease; // way in
 }
+
 .parts-container .part {
     opacity: 0;
     transition: opacity .5s ease, transform .5s ease .5s; // way out
@@ -273,12 +272,15 @@ nav {
 .parts-container .owner.part.active {
     transform: translateX(0);
 }
+
 .parts-container .owner.part {
     transform: translateX(-100%);
 }
+
 .parts-container .seeker.part.active {
     transform: translateX(-100%);
 }
+
 .parts-container .seeker.part {
     transform: translateX(0);
 }
@@ -334,8 +336,7 @@ section.map {
 
     .header,
     .subheader,
-    .legend
-    {
+    .legend {
         padding: 0 2rem;
     }
 }
@@ -364,6 +365,7 @@ section.map .subheader {
 
         font-size: .9rem;
     }
+
     td {
         padding: 0 .75rem;
     }
@@ -394,7 +396,7 @@ section.map .subheader {
 }
 
 .mapboxgl-marker {
-//
+    //
 }
 
 
@@ -443,5 +445,65 @@ footer {
         font-size: 1.5rem;
         text-decoration: none;
         color: $bananaDark;
+    }
+}
+
+
+// >> DASHBOARD
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main.dashboard {
+    background-color: $whitish;
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main.dashboard section {
+    width: 100%;
+    max-width: 576px;
+    padding: 1rem;
+    margin: 2rem 0;
+
+    background-color: #fff;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+    // make add printer button appear in center
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .add-printer {
+        margin: 2rem 0;
+    }
+
+    .header {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    p.label {
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-top: 1rem;
+    }
+
+    p.info {
+        line-height: 2rem;
+        font-weight: 600;
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    main.dashboard section {
+        border-radius: 0.5rem;
+        margin: 2rem;
     }
 }

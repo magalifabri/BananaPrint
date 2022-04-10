@@ -1,16 +1,19 @@
 <x-layout>
     <x-slot name="main">
-        <main>
+        <main class="dashboard">
 
-            <section class="dashboard">
+            <section>
                 @unless ($user['has_printer'])
-                    <p><a href="{{ route('createPrinter') }}">Add Printer</a></p>
+                    <a href="{{ route('createPrinter') }}" class="button-style-1 add-printer">add printer</a>
                 @else
-                    <h2>your printer</h2>
-                    <p>color: {{ $user->printer['color'] ? 'yes' : 'no' }}</p>
-                    <p>double-sided: {{ $user->printer['double_sided'] ? 'yes' : 'no' }}</p>
-                    <p>
-                        {{ $user->printer['street'] }}
+                    <p class="header">Your Printer</p>
+                    <p class="label">Color</p>
+                    <p class="info">{{ $user->printer['color'] ? 'Yes' : 'No' }}</p>
+                    <p class="label">Double-sided</p>
+                    <p class="info">{{ $user->printer['double_sided'] ? 'Yes' : 'No' }}</p>
+                    <p class="label">Address</p>
+                    <p class="info">
+                        {{ ucwords($user->printer['street']) }}
                         {{ $user->printer['street_number'] }},
                         {{ $user->printer['zipcode'] }}
                     </p>

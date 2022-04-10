@@ -23,7 +23,7 @@ html {
 
 body {
   font-family: "Nunito", sans-serif;
-  color: #1f2937;
+  color: #374151;
   min-width: 300px;
 }
 
@@ -326,7 +326,7 @@ section.map .subheader {
 }
 
 .mapboxgl-popup-content {
-  color: #1f2937;
+  color: #374151;
   font-size: 0.7rem;
   line-height: 1.2;
   text-transform: uppercase;
@@ -358,4 +358,53 @@ footer a {
   font-size: 1.5rem;
   text-decoration: none;
   color: #d6a101;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main.dashboard {
+  background-color: #F3F4F6;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main.dashboard section {
+  width: 100%;
+  max-width: 576px;
+  padding: 1rem;
+  margin: 2rem 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main.dashboard section .add-printer {
+  margin: 2rem 0;
+}
+main.dashboard section .header {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+main.dashboard section p.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+main.dashboard section p.info {
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 576px) {
+  main.dashboard section {
+    border-radius: 0.5rem;
+    margin: 2rem;
+  }
 }
