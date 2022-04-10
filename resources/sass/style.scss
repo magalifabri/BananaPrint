@@ -449,6 +449,35 @@ footer {
 }
 
 
+// STYLING MODULES
+
+.main-style-center {
+    flex: 1;
+
+    background-color: $whitish;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-style-1 {
+    width: 100%;
+    max-width: 576px;
+    padding: 1rem;
+    margin: 2rem 0;
+
+    background-color: #fff;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+@media only screen and (min-width: 576px) {
+    .box-style-1 {
+        border-radius: 0.5rem;
+        margin: 2rem;
+    }
+}
+
+
 // >> DASHBOARD
 
 body {
@@ -457,24 +486,7 @@ body {
     flex-direction: column;
 }
 
-main.dashboard {
-    background-color: $whitish;
-    flex: 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 main.dashboard section {
-    width: 100%;
-    max-width: 576px;
-    padding: 1rem;
-    margin: 2rem 0;
-
-    background-color: #fff;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-
     // make add printer button appear in center
     display: flex;
     align-items: center;
@@ -501,9 +513,3 @@ main.dashboard section {
     }
 }
 
-@media only screen and (min-width: 576px) {
-    main.dashboard section {
-        border-radius: 0.5rem;
-        margin: 2rem;
-    }
-}

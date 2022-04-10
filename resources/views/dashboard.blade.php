@@ -1,8 +1,8 @@
 <x-layout>
     <x-slot name="main">
-        <main class="dashboard">
+        <main class="dashboard main-style-center">
 
-            <section>
+            <section class="box-style-1">
                 @unless ($user['has_printer'])
                     <a href="{{ route('createPrinter') }}" class="button-style-1 add-printer">add printer</a>
                 @else
