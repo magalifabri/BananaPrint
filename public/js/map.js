@@ -863,6 +863,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var apiToken = 'pk.eyJ1IjoibWFnYWxpLWYiLCJhIjoiY2wxbmc2bTcxMHA5dzNpcXJ3NG5iOGc4eCJ9.hc1mwIb1k0yBsaY__Dcecw';
 mapboxgl.accessToken = apiToken; // CREATE MAP
 
+var getColor = function getColor(isColor, isDouble) {
+  if (isColor === 'yes') {
+    if (isDouble === 'yes') {
+      return '#ffc000';
+    } else {
+      return '#ffdc4a';
+    }
+  } else {
+    if (isDouble) {
+      return '#7a7a7a';
+    } else {
+      return '#bebebe';
+    }
+  }
+};
+
 var map;
 
 var createMap = function createMap(data) {
@@ -891,7 +907,7 @@ var createMap = function createMap(data) {
       offset: 25
     }).setHTML("<p>color: ".concat(color, " </p>") + "<p>double-sided: ".concat(_double, " </p>") + "<p><a href=\"/contact-owner/".concat(printerId, "\">link</a></p>"));
     new mapboxgl.Marker({
-      color: "#5b53e0"
+      color: getColor(color, _double)
     }).setLngLat([lng, lat]).setPopup(popup).addTo(map);
   }); // add geocoder search box to the map
   // code taken from https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-geocoder/

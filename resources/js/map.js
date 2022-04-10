@@ -5,6 +5,23 @@ mapboxgl.accessToken = apiToken;
 
 // CREATE MAP
 
+const getColor = (isColor, isDouble) => {
+    if (isColor === 'yes') {
+        if (isDouble === 'yes') {
+            return '#ffc000';
+        } else {
+            return '#ffdc4a';
+        }
+    } else {
+        if (isDouble) {
+            return '#7a7a7a';
+        } else {
+            return '#bebebe';
+        }
+    }
+};
+
+
 let map;
 
 const createMap = (data) => {
@@ -35,7 +52,7 @@ const createMap = (data) => {
         );
 
         new mapboxgl.Marker({
-            color: "#5b53e0"
+            color: getColor(color, double),
         }).setLngLat([lng, lat]).setPopup(popup).addTo(map);
     });
 
