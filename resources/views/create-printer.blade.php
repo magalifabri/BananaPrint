@@ -2,8 +2,21 @@
     <x-slot name="main">
         <main class="create-printer main-style-center">
 
+
             <form action="{{ route('storePrinter') }}" method="POST" class="box-style-1">
                 @csrf
+
+                @if ($errors->any())
+                    <div class="errors">
+                        <p>Whoops! Something went wrong.</p>
+
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 <p class="header">Printer's Capabilities</p>
 
