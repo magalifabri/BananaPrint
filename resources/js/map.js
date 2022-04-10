@@ -87,27 +87,3 @@ const run = () => {
         .then(data => createMap(data));
 }
 run();
-
-
-// SEARCH
-
-const handleSearchInput = async () => {
-    const searchInput = document.querySelector('.search-input-field').value;
-
-    if (searchInput) {
-        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchInput}.json?limit=1&access_token=${apiToken}`)
-            .then(response => response.json())
-            .then(data => {
-                const lng = data.features[0].center[0];
-                const lat = data.features[0].center[1];
-
-                map.flyTo({
-                    center: [lng, lat],
-                    essential: true // this animation is considered essential with respect to prefers-reduced-motion
-                });
-            });
-    }
-};
-
-const searchButton = document.querySelector('.search-submit-button')
-searchButton.addEventListener('click', handleSearchInput);
