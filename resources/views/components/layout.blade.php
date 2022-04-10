@@ -63,7 +63,7 @@
 <hr>
 
 <footer>
-    <p><a href="#top">BananaPrint ↑</a></p>
+    <p><a href="{{ route('home') }}">{{ config('app.name') }}</a></p>
 </footer>
 
 <script>
