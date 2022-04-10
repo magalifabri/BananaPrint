@@ -319,9 +319,54 @@ nav a {
 
 // >> MAP
 
+section.map {
+    padding: 2rem 0;
+
+    background: linear-gradient(90deg, #22a8a7, #199695);
+    color: white;
+
+    .header,
+    .subheader,
+    .legend
+    {
+        padding: 0 2rem;
+    }
+}
+
+section.map .header {
+    margin-bottom: 2rem;
+
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+section.map .subheader {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.legend {
+    margin: 2rem 1rem 0 1rem;
+
+    table {
+        margin: 0 auto;
+        text-align: center;
+
+        font-size: .9rem;
+    }
+    td {
+        padding: 0 .75rem;
+    }
+}
+
 #map {
     width: 100vw;
     height: 70vh;
+
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.5);
 }
 
 .geocoder {
@@ -336,6 +381,10 @@ nav a {
     z-index: 1;
     top: 10px;
     right: 10px;
+}
+
+.mapboxgl-marker {
+//
 }
 
 
