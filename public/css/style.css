@@ -422,40 +422,60 @@ main.dashboard section p.info {
   font-weight: 600;
 }
 
-.create-printer form .header {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-}
-.create-printer form label {
-  display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-.create-printer form input {
+input,
+textarea {
   font-size: 1rem;
   font-family: "Nunito", sans-serif;
   font-weight: 500;
   color: #374151;
   margin-bottom: 1rem;
 }
-.create-printer form input[type=text], .create-printer form [type=number] {
+input:focus,
+textarea:focus {
+  outline: 3px solid #e3e8fe;
+}
+
+input[type=checkbox] {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+::-moz-placeholder {
+  color: #989898;
+}
+
+:-ms-input-placeholder {
+  color: #989898;
+}
+
+::placeholder {
+  color: #989898;
+}
+
+.input-field-style-1 {
   width: 100%;
   padding: 0.5rem 0.75rem;
   margin-top: 0.25rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border: 1px solid rgb(209, 213, 219);
+  border: 1px solid #d1d5db;
   border-radius: 0.375rem;
 }
-.create-printer form input[type=text]:focus, .create-printer form [type=number]:focus {
-  outline: 3px solid #e3e8fe;
-}
-.create-printer form input[type=checkbox] {
+
+.input-field-style-short {
+  width: 4rem;
+  padding: 0.25rem 0.25rem;
+  margin-bottom: 0.5rem;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
 }
-.create-printer form .checkbox-label {
-  margin-left: 0.25rem;
-}
-.create-printer form input[type=submit] {
+
+.button-style-2 {
   display: block;
   padding: 0.5rem 1rem;
   margin: 0.5rem 0 0 auto;
@@ -467,4 +487,21 @@ main.dashboard section p.info {
   font-weight: 600;
   font-size: 0.75rem;
   color: white;
+}
+
+.checkbox-label {
+  margin-left: 0.25rem;
+}
+
+.create-printer form .header {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.create-job form .header {
+  font-size: 1.3rem;
+  margin: 1.5rem 0 1rem;
+}
+.create-job form .header:nth-child(2) {
+  margin: 0 0 1rem;
 }

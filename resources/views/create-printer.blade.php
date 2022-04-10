@@ -2,7 +2,6 @@
     <x-slot name="main">
         <main class="create-printer main-style-center">
 
-
             <form action="{{ route('storePrinter') }}" method="POST" class="box-style-1">
                 @csrf
 
@@ -35,15 +34,15 @@
                 <p class="header">Address</p>
 
                 <label for="street">Street</label>
-                <input type="text" name="street" id="street">
+                <input class="input-field-style-1" type="text" name="street" id="street">
 
                 <label for="street-number">Street number</label>
-                <input type="number" name="streetNumber" id="street-number">
+                <input class="input-field-style-1" type="number" name="streetNumber" id="street-number">
 
                 <label for="zipcode">Zipcode</label>
-                <input type="text" name="zipcode" id="zipcode">
+                <input class="input-field-style-1" type="text" name="zipcode" id="zipcode">
 
-                <input type="submit" value="save">
+                <input class="button-style-2" type="submit" value="save">
             </form>
 
         </main>
