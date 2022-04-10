@@ -60,8 +60,6 @@
 
 </main>
 
-<hr>
-
 <footer>
     <p><a href="{{ route('home') }}">{{ config('app.name') }}</a></p>
 </footer>
