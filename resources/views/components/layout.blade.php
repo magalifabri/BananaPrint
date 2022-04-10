@@ -54,11 +54,7 @@
     </nav>
 </header>
 
-<main>
-
-    {{ $slot }}
-
-</main>
+{{ $main }}
 
 <footer>
     <p><a href="{{ route('home') }}">{{ config('app.name') }}</a></p>
