@@ -1,6 +1,4 @@
-@extends('layouts.my_app')
-
-@section('main')
+<x-layout>
 
     @if ($errors->any())
 {{--        <div class="alert alert-danger">--}}
@@ -97,4 +95,4 @@
         <p><input type="submit"></p>
     </form>
 
-@endsection
+</x-layout>
