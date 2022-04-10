@@ -364,6 +364,7 @@ footer a {
   flex: 1;
   background-color: #F3F4F6;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -383,6 +384,19 @@ footer a {
     margin: 2rem;
   }
 }
+.errors {
+  color: #ff2e2e;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.errors p {
+  padding-bottom: 0.5rem;
+}
+.errors ul {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 body {
   min-height: 100vh;
   display: flex;
