@@ -428,3 +428,17 @@ section.map .subheader {
 
     transition: all .3s ease-in;
 }
+
+
+// >> FOOTER
+
+footer {
+    padding: 4rem 2rem;
+    text-align: center;
+
+    a {
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: $bananaDark;
+    }
+}

@@ -345,3 +345,13 @@ section.map .subheader {
   text-align: center;
   transition: all 0.3s ease-in;
 }
+
+footer {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+footer a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #d6a101;
+}

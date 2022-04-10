@@ -26,7 +26,7 @@
     </div>
 @endif
 
-<header>
+<header id="top">
     <h1><a href="{{ route('home') }}">{{ config('app.name') }}</a></h1>
 
     <div class="menu-toggle-button">
@@ -63,7 +63,7 @@
 <hr>
 
 <footer>
-    <p>footer</p>
+    <p><a href="#top">BananaPrint ↑</a></p>
 </footer>
 
 <script>
