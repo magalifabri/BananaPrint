@@ -30,7 +30,7 @@
     <li>file extension: {{ $job->file_ext }}</li>
 </ul>
 
-<p>I offer {{ $job->exchange_offer }} in exchange</p>
+<p>In exchange, I offer {{ $job->exchange_offer }}</p>
 
 <p>I can come pick up the print during these times:</p>
 
