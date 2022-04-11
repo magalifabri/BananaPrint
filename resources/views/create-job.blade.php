@@ -57,34 +57,34 @@
                 <p class="header">In exchange, I offer</p>
                 <input class="input-field-style-1" id="exchangeOffer" type="text" name="exchangeOffer"
                        value="{{ old('exchangeOffer') ?? 'a delicious banana' }}"
-                       placeholder="an even more delicious banana">
+                       placeholder="a super delicious banana!">
 
                 {{-- PICKUP TIMES --}}
                 <p class="header">I can pick up the print</p>
 
                 <p>
-                    1. from
+                    1. between
                     <input class="input-field-style-short" type="text" name="pickupTimeframeStart1" value="{{ old('pickupTimeframeStart1') }}"
                            placeholder="time">
-                    to <input class="input-field-style-short" type="text" name="pickupTimeframeEnd1" value="{{ old('pickupTimeframeEnd1') }}"
+                    and <input class="input-field-style-short" type="text" name="pickupTimeframeEnd1" value="{{ old('pickupTimeframeEnd1') }}"
                                placeholder="time">
                     on <input class="input-field-style-short" type="text" name="pickupTimeframeDate1" value="{{ old('pickupTimeframeDate1') }}"
                               placeholder="day">
                 </p>
                 <p>
-                    2. from
+                    2. between
                     <input class="input-field-style-short" type="text" name="pickupTimeframeStart2" value="{{ old('pickupTimeframeStart2') }}"
                            placeholder="time">
-                    to <input class="input-field-style-short" type="text" name="pickupTimeframeEnd2" value="{{ old('pickupTimeframeEnd2') }}"
+                    and <input class="input-field-style-short" type="text" name="pickupTimeframeEnd2" value="{{ old('pickupTimeframeEnd2') }}"
                                placeholder="time">
                     on <input class="input-field-style-short" type="text" name="pickupTimeframeDate2" value="{{ old('pickupTimeframeDate2') }}"
                               placeholder="day">
                 </p>
                 <p>
-                    3. from
+                    3. between
                     <input class="input-field-style-short" type="text" name="pickupTimeframeStart3" value="{{ old('pickupTimeframeStart3') }}"
                            placeholder="time">
-                    to <input class="input-field-style-short" type="text" name="pickupTimeframeEnd3" value="{{ old('pickupTimeframeEnd3') }}"
+                    and <input class="input-field-style-short" type="text" name="pickupTimeframeEnd3" value="{{ old('pickupTimeframeEnd3') }}"
                                placeholder="time">
                     on <input class="input-field-style-short" type="text" name="pickupTimeframeDate3" value="{{ old('pickupTimeframeDate3') }}"
                               placeholder="day">
