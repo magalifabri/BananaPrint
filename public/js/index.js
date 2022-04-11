@@ -43,17 +43,7 @@ noButton.addEventListener('click', function () {
 }); // reward swapping
 
 var rewardInsertSpan = document.querySelector('span.reward-insert');
-var rewards = ['apples', // 'bananas',
-// 'oranges',
-// 'bananas',
-// 'cookies',
-// 'bananas',
-// 'muffins',
-// 'bananas',
-// 'flowers',
-// 'bananas',
-'chocolates' // 'bananas',
-];
+var rewards = ['apples', 'bananas', 'oranges', 'bananas', 'cookies', 'bananas', 'muffins', 'bananas', 'flowers', 'bananas', 'chocolates', 'bananas'];
 var i = 0;
 setInterval(function () {
   rewardInsertSpan.style.opacity = '0';
