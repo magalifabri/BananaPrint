@@ -5,6 +5,7 @@
             <form action="{{ route('storeJob', [$printer->id, auth()->id()]) }}" method="POST" class="box-style-1">
                 @csrf
 
+                {{-- ERROR MESSAGES --}}
                 @if ($errors->any())
                     <div class="errors">
                         <p>Whoops! Something went wrong.</p>
@@ -17,6 +18,7 @@
                     </div>
                 @endif
 
+                {{-- REQUEST WISHES --}}
                 <p class="header">I would like my print to be </p>
 
                 <label for="grayscale">
@@ -41,7 +43,7 @@
                     </label>
                 @endif
 
-
+                {{-- DOCUMENT DETAILS --}}
                 <p class="header">About my document</p>
 
                 <label for="numberOfPages">Number of pages</label>
@@ -51,13 +53,15 @@
                 <input class="input-field-style-1" type="text" id="fileExtension" name="fileExtension" placeholder="e.g.: .pdf / .txt"
                        value="{{ old('fileExtension') }}">
 
+                {{-- EXCHANGE OFFER --}}
                 <p class="header">In exchange, I offer</p>
                 <input class="input-field-style-1" id="exchangeOffer" type="text" name="exchangeOffer"
                        value="{{ old('exchangeOffer') ?? 'a delicious banana' }}"
                        placeholder="an even more delicious banana">
 
-
+                {{-- PICKUP TIMES --}}
                 <p class="header">I can pick up the print</p>
+
                 <p>
                     1. from
                     <input class="input-field-style-short" type="text" name="pickupTimeframeStart1" value="{{ old('pickupTimeframeStart1') }}"
@@ -86,9 +90,11 @@
                               placeholder="day">
                 </p>
 
+                {{-- COMMENTS --}}
                 <p class="header">Additional Comments</p>
                 <textarea class="input-field-style-1" name="message" rows="5">{{ old('message') ?? '' }}</textarea>
 
+                {{-- SUBMIT --}}
                 <input class="button-style-2" type="submit">
             </form>
 
