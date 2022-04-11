@@ -53,17 +53,17 @@ noButton.addEventListener('click', () => {
 const rewardInsertSpan = document.querySelector('span.reward-insert');
 const rewards = [
     'apples',
-    // 'bananas',
-    // 'oranges',
-    // 'bananas',
-    // 'cookies',
-    // 'bananas',
-    // 'muffins',
-    // 'bananas',
-    // 'flowers',
-    // 'bananas',
+    'bananas',
+    'oranges',
+    'bananas',
+    'cookies',
+    'bananas',
+    'muffins',
+    'bananas',
+    'flowers',
+    'bananas',
     'chocolates',
-    // 'bananas',
+    'bananas',
 ];
 let i = 0;
 
