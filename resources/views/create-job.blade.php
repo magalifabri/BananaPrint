@@ -30,8 +30,6 @@
                     </label>
                 @endif
 
-                <br>
-
                 <label for="single-sided">
                     <input id="single-sided" type="radio" name="doubleSided" value="0" checked>
                     <span class="checkbox-label">single-sided</span>
@@ -46,12 +44,12 @@
 
                 <p class="header">About my document</p>
 
-                <label for="numPages">Number of pages</label>
-                <input class="input-field-style-1" type="number" id="numPages" name="numPages" value="{{ old('numPages') }}">
+                <label for="numberOfPages">Number of pages</label>
+                <input class="input-field-style-1" type="number" id="numberOfPages" name="numberOfPages" value="{{ old('numberOfPages') }}">
 
-                <label for="fileExt">File extension</label>
-                <input class="input-field-style-1" type="text" id="fileExt" name="fileExt" placeholder="e.g.: .pdf / .txt"
-                       value="{{ old('fileExt') }}">
+                <label for="fileExtension">File extension</label>
+                <input class="input-field-style-1" type="text" id="fileExtension" name="fileExtension" placeholder="e.g.: .pdf / .txt"
+                       value="{{ old('fileExtension') }}">
 
                 <p class="header">In exchange, I offer</p>
                 <input class="input-field-style-1" id="exchangeOffer" type="text" name="exchangeOffer"

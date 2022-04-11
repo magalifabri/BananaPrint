@@ -24,8 +24,8 @@ class JobController extends Controller
         $request->validate([
             'color' => ['required', 'string', 'max:15'],
             'doubleSided' => ['required', 'string', 'max:15'],
-            'numPages' => ['required', 'integer', 'max:100'],
-            'fileExt' => ['required', 'string', 'max:255'],
+            'numberOfPages' => ['required', 'integer', 'max:100'],
+            'fileExtension' => ['required', 'string', 'max:255'],
             'pickupTimeframeStart1' => ['required', 'string', 'max:255'],
             'pickupTimeframeStart2' => ['required', 'string', 'max:255'],
             'pickupTimeframeStart3' => ['required', 'string', 'max:255'],
@@ -44,18 +44,18 @@ class JobController extends Controller
         $job['user_id'] = $userId;
         $job['color'] = $request->color ;
         $job['double_sided'] = $request->doubleSided;
-        $job['num_pages'] = $request->numPages;
-        $job['file_ext'] = $request->fileExt;
-        $job['pickup_timeframe_start1'] = $request->pickupTimeframeStart1;
-        $job['pickup_timeframe_start2'] = $request->pickupTimeframeStart2;
-        $job['pickup_timeframe_start3'] = $request->pickupTimeframeStart3;
-        $job['pickup_timeframe_end1'] = $request->pickupTimeframeEnd1;
-        $job['pickup_timeframe_end2'] = $request->pickupTimeframeEnd2;
-        $job['pickup_timeframe_end3'] = $request->pickupTimeframeEnd3;
-        $job['pickup_timeframe_date1'] = $request->pickupTimeframeDate1;
-        $job['pickup_timeframe_date2'] = $request->pickupTimeframeDate2;
-        $job['pickup_timeframe_date3'] = $request->pickupTimeframeDate3;
+        $job['num_pages'] = $request->numberOfPages;
+        $job['file_ext'] = $request->fileExtension;
         $job['exchange_offer'] = $request->exchangeOffer;
+        $job['pickup_timeframe_start1'] = $request->pickupTimeframeStart1;
+        $job['pickup_timeframe_end1'] = $request->pickupTimeframeEnd1;
+        $job['pickup_timeframe_date1'] = $request->pickupTimeframeDate1;
+        $job['pickup_timeframe_start2'] = $request->pickupTimeframeStart2;
+        $job['pickup_timeframe_end2'] = $request->pickupTimeframeEnd2;
+        $job['pickup_timeframe_date2'] = $request->pickupTimeframeDate2;
+        $job['pickup_timeframe_start3'] = $request->pickupTimeframeStart3;
+        $job['pickup_timeframe_end3'] = $request->pickupTimeframeEnd3;
+        $job['pickup_timeframe_date3'] = $request->pickupTimeframeDate3;
         $job['message'] = $request->message;
         $job->save();
 
