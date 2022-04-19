@@ -339,7 +339,7 @@ section.map .subheader {
 }
 
 .flash-message {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   padding: 1rem;
