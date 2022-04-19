@@ -350,11 +350,22 @@ section.map .subheader {
   transition: all 0.3s ease-in;
 }
 
-footer {
-  padding: 4rem 2rem;
+.footer {
+  padding: 3rem 2rem;
   text-align: center;
 }
-footer a {
+.footer__info {
+  margin-bottom: 2rem;
+}
+.footer__p + .footer__p {
+  margin-top: 0.5rem;
+}
+.footer__a {
+  font-weight: 700;
+  color: #5b53e0;
+  text-decoration: none;
+}
+.footer .home-link {
   font-size: 1.5rem;
   text-decoration: none;
   color: #d6a101;
