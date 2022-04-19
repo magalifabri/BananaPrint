@@ -25,7 +25,7 @@ class VerifyEmailController extends Controller
             event(new Verified($request->user()));
         }
 
-        $request->session()->flash('status', 'email verification successful');
+        $request->session()->flash('status', 'email verified');
 
         return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');
     }

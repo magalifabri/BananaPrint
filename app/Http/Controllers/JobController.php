@@ -71,6 +71,8 @@ class JobController extends Controller
 //        dev: view mail in browser
 //        return new PrintRequest($job);
 
+        $request->session()->flash('status', 'request & confirmation sent');
+
         return redirect(route('home'));
     }
 }
