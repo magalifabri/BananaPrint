@@ -56,8 +56,14 @@
 
 {{ $main }}
 
-<footer>
-    <p><a href="{{ route('home') }}">{{ config('app.name') }}</a></p>
+<footer class="footer">
+    <div class="footer__info">
+        <p class="footer__p">This site was made as an exercise for the coding school BeCode in Belgium.</p>
+        <p class="footer__p">View source code & acknowledgements on <a class="footer__a" href="https://github.com/magalifabri/react-intro">GitHub</a>.</p>
+        <p class="footer__p">Made by Magali Fabri.</p>
+    </div>
+
+    <p><a class="home-link" href="{{ route('home') }}">{{ config('app.name') }}</a></p>
 </footer>
 
 <script>
