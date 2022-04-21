@@ -6,7 +6,7 @@ The purpose of the exercise was to learn the basics of [Laravel](https://laravel
 
 The goal was to create a small web app that makes use of a database with relations, using Laravel.
 
-### View result on [Heroku](http://banana-print.herokuapp.com/)
+### View result on [Heroku](http://bananaprint.herokuapp.com/)
 
 
 ## Acknowledgements
