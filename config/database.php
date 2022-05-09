@@ -2,7 +2,12 @@
 
 use Illuminate\Support\Str;
 
-$dbParams = parse_url(getenv("DATABASE_URL"));
+$dbParams = parse_url(getenv('DATABASE_URL'));
+
+if (empty($dbParams["host"])) {
+    require_once __DIR__ . '/herokuDbUrl.php';
+    $dbParams = parse_url($HEROKU_DATABASE_URL);
+}
 
 return [
 
@@ -67,7 +72,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DATABASE_URL'),
+            'url' => getenv('DATABASE_URL'),
             'host' => $dbParams["host"],
             'port' => $dbParams["port"],
             'database' => ltrim($dbParams["path"], "/"),
