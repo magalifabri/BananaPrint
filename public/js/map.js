@@ -14,7 +14,7 @@ var getColor = function getColor(isColor, isDouble) {
       return '#ffdc4a';
     }
   } else {
-    if (isDouble) {
+    if (isDouble === 'double-sided') {
       return '#7a7a7a';
     } else {
       return '#bebebe';
