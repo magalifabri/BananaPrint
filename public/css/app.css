@@ -1144,6 +1144,12 @@ select {
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
+.logo {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #D6A101FF;
+    font-weight: bold;
+}
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));

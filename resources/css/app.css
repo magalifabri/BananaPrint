@@ -1,3 +1,10 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.logo {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #D6A101FF;
+    font-weight: bold;
+}
