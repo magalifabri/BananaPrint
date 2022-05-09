@@ -304,6 +304,9 @@ section.map .subheader {
 .legend td {
   padding: 0 0.75rem;
 }
+.legend td svg {
+  margin: 0 auto;
+}
 
 #map {
   width: 100vw;
