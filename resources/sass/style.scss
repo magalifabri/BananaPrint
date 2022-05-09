@@ -336,8 +336,7 @@ section.map {
     color: white;
 
     .header,
-    .subheader,
-    .legend {
+    .subheader {
         padding: 0 2rem;
     }
 }
@@ -387,6 +386,7 @@ section.map .subheader {
     z-index: 1;
     top: 10px;
     left: 10px;
+    max-width: 80%;
 }
 
 .geolocator {
